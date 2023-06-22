@@ -19,6 +19,7 @@
         <maven.surefire.version>3.0.0-M8</maven.surefire.version>
         <java.version>17</java.version>
         <selenium.version>4.8.0</selenium.version>
+        <version.cucumber-reporting>3.15.0</version.cucumber-reporting>
         <junit.jupiter.version>5.9.2</junit.jupiter.version>
         <junit.platform.version>1.9.2</junit.platform.version>
         <testng.version>7.7.1</testng.version>
@@ -134,6 +135,22 @@
             <version>${lombok.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-path</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-schema-validator</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -153,6 +170,40 @@
                     <source>17</source>
                     <target>17</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>net.masterthought</groupId>
+                <artifactId>maven-cucumber-reporting</artifactId>
+                <version>${version.cucumber-reporting}</version>
+                <executions>
+                    <execution>
+                        <id>execution</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <projectName>Kirti Assignment</projectName>
+                            <!-- output directory for the generated report -->
+                            <outputDirectory>${project.build.directory}/results/cucumber-report-html</outputDirectory>
+                            <cucumberOutput>${project.build.directory}/results/cucumber-json-report.json</cucumberOutput>
+                            <!-- optional, defaults to outputDirectory if not specified -->
+<!--                            <inputDirectory>${project.build.directory}/jsonReports</inputDirectory>-->
+                            <jsonFiles>
+                                <!-- supports wildcard or name pattern -->
+                                <param>**/*.json</param>
+                            </jsonFiles>
+
+                            <parallelTesting>false</parallelTesting>
+                            <!-- optional, set true to group features by its Ids -->
+<!--                            <mergeFeaturesById>false</mergeFeaturesById>-->
+                            <!-- optional, set true to get a final report with latest results of the same test from different test runs -->
+<!--                            <mergeFeaturesWithRetest>false</mergeFeaturesWithRetest>-->
+                            <!-- optional, set true to fail build on test failures -->
+                            <checkBuildResult>false</checkBuildResult>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
