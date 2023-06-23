@@ -55,7 +55,7 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    public HomePage fetchSearchResult(BookingCatalog catalog){
+    public void fetchSearchResult(BookingCatalog catalog){
         BookingDetails searchDetails = catalog.getBookingList().get(0);
 
         List<Map<String, String>> suggestions = restApiCall().jsonPath()
@@ -64,7 +64,7 @@ public class HomePage extends BasePage {
         String SearchURL= baseURL
                 +"/hotels/hotel-details/?checkin="+searchDetails.getCheckin()
                 +"&checkout="+searchDetails.getCheckout()
-                +"locusId=CT"+searchDetails.getDestination()
+                +"&locusId=CT"+searchDetails.getDestination()
                 +"&locusType=city&city=CT"+searchDetails.getDestination()
                 +"&country=IN&searchText="+searchDetails.getHotelName()
                 +"&roomStayQualifier="+searchDetails.getAdultCount()
@@ -73,7 +73,8 @@ public class HomePage extends BasePage {
                 + "&reference=hotel&hotelId="+hotelId
                 +"&rf=directSearch";
                 ;
-        return this;
+        driver.get(SearchURL);
+//        return this;
     }
 
     public HomePage search(){
