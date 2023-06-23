@@ -9,11 +9,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.util.List;
-import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
@@ -57,14 +55,13 @@ public class HomePage extends BasePage {
 
     public void fetchSearchResult(BookingCatalog catalog){
         BookingDetails searchDetails = catalog.getBookingList().get(0);
-
-        List<Map<String, String>> suggestions = restApiCall().jsonPath()
-                .getList("");
-        String hotelId = suggestions.get(0).get("Id");
+        //resolve json path
+        List<String> suggestions = restApiCall().jsonPath().getList("id");
+        String hotelId = suggestions.get(0);
         String SearchURL= baseURL
                 +"/hotels/hotel-details/?checkin="+searchDetails.getCheckin()
                 +"&checkout="+searchDetails.getCheckout()
-                +"&locusId=CT"+searchDetails.getDestination()
+                +"locusId=CT"+searchDetails.getDestination()
                 +"&locusType=city&city=CT"+searchDetails.getDestination()
                 +"&country=IN&searchText="+searchDetails.getHotelName()
                 +"&roomStayQualifier="+searchDetails.getAdultCount()
@@ -74,7 +71,6 @@ public class HomePage extends BasePage {
                 +"&rf=directSearch";
                 ;
         driver.get(SearchURL);
-//        return this;
     }
 
     public HomePage search(){
@@ -107,7 +103,7 @@ public class HomePage extends BasePage {
                 .when().get(apiEndpoint).then()
                 .statusCode(200)
                 .contentType(JSON).extract().response();
-
+        System.out.println(response);
         return response;
         }
 }
