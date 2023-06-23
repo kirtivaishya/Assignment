@@ -2,7 +2,7 @@ Feature:Hotel booking
 
   @Booking
   Scenario: Hotel booking
-    Given User is a home page of MMT
+    Given User is at home page of MMT
     When User selects below parameters for the search
     |Destination|checkin|checkout|Hotel|Adults|Children|
     |GOI        |06232023|06292023|TajExoticaResort|2|1|

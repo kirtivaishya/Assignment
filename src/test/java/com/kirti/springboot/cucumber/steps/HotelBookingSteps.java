@@ -23,7 +23,7 @@ public class HotelBookingSteps {
     private HomePage homePage;
 
 
-    @Given("User is a home page of MMT")
+    @Given("User is at home page of MMT")
     public void iAmOnTheLoginPage() {
         homePage
                 .goToHomePage();

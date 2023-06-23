@@ -1,23 +1,25 @@
 # selenium-springboot-cucumber-restassured - All in one using Aspect programming 
-Tech Stack
+**Tech Stack:**
 Java 17
 Selenium 4.x
 JUnit 5.x (Jupiter)
 Cucumber 7.x
 Spring Boot 3.0.1
 RestAssured 5.0.1
-
-Reporting:
+**BDD**
+Used here cucumber framework to achieve abstraction for view as feature 
+![img_1.png](img_1.png)
+**Reporting:**
 The reporting is achieved by cucumber report 
 ![img.png](img.png)
 
-Log:
+**Log:**
 Execution logs are logged into execution.log under "target.exec.temp" as defined in application.properties 
 
-Screenshot :
+**Screenshot:** 
 Created an annotation as well as calling in after hook in case of failure 
 
-How to Run Tests
+**How to Run Tests**
 We can run the test in the command line with the maven command below. The below command is for the zhs terminal.
 
 mvn -Dtest="com.kirti.springboot.tests.**" test
