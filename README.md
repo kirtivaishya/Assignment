@@ -1,4 +1,11 @@
 # selenium-springboot-cucumber-restassured - All in one using Aspect programming 
+Tech Stack
+Java 17
+Selenium 4.x
+JUnit 5.x (Jupiter)
+Cucumber 7.x
+Spring Boot 3.0.1
+RestAssured 5.0.1
 
 Reporting:
 The reporting is achieved by cucumber report 
