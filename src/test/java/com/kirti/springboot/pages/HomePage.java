@@ -29,10 +29,10 @@ public class HomePage extends BasePage {
     @FindBy(how = How.ID, using = "hsw_search_button")
     public WebElement searchButton;
 
-    @FindBy(how = How.LINK_TEXT, using = "BOOK THIS NOW")
+    @FindBy(how = How.CSS, using = ".bookNowBtn .primaryBtn")
     public WebElement bookingButton;
 
-    By homePageLogo = By.cssSelector(".chMmtLogo");
+    By homePageLogo = By.xpath("[data-cy='Logo_38']");
 
 
 
@@ -78,7 +78,8 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    public HomePage Book(){
+    public HomePage book(){
+        this.wait.until((d) -> this.bookingButton.isDisplayed());
         bookingButton.click();
         return this;
     }

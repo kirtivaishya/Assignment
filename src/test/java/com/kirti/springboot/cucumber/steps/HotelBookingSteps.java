@@ -63,6 +63,6 @@ public class HotelBookingSteps {
 
     @Then("User proceed further for booking by clicking on {string}")
     public void userClickOnBooking(String bookingText) {
-        homePage.bookingButton.click();
+        homePage.book();
     }
 }

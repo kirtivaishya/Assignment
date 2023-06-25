@@ -1,10 +1,11 @@
 package com.kirti.springboot.scope;
 
-import java.util.Objects;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.SessionId;
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.context.support.SimpleThreadScope;
+
+import java.util.Objects;
 
 public class WebdriverScope extends SimpleThreadScope {
     @Override

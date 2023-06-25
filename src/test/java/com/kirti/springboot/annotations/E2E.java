@@ -14,5 +14,5 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @Retention(RetentionPolicy.RUNTIME)
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = SpringSeleniumApplication.class)
-public @interface SeleniumTest {
+public @interface E2E {
 }

@@ -1,6 +1,5 @@
 package com.kirti.springboot.pages;
 
-import com.kirti.springboot.utils.LogUtil;
 import jakarta.annotation.PostConstruct;
 import java.util.List;
 import lombok.SneakyThrows;
@@ -22,9 +21,6 @@ public abstract class BasePage {
 
     @Autowired
     protected JavascriptExecutor javascriptExecutor;
-
-    @Autowired
-    protected LogUtil logUtil;
 
     @PostConstruct
     private void init() {

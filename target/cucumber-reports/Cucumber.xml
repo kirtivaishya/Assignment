@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="37.399">
-    <testcase classname="Hotel booking" name="Hotel booking" time="36.309">
-        <failure message="Cannot invoke &quot;org.openqa.selenium.WebElement.click()&quot; because &quot;this.homePage.bookingButton&quot; is null" type="java.lang.NullPointerException"><![CDATA[Given User is at home page of MMT...........................................passed
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="32.671">
+    <testcase classname="Hotel booking" name="Hotel booking" time="27.824">
+        <system-out><![CDATA[Given User is at home page of MMT...........................................passed
 When User selects below parameters for the search...........................passed
 And User clicks on 'Search' button..........................................passed
-Then User proceed further for booking by clicking on 'BOOK THIS NOW'........failed
-
-StackTrace:
-java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebElement.click()" because "this.homePage.bookingButton" is null
-	at com.kirti.springboot.cucumber.steps.HotelBookingSteps.userClickOnBooking(HotelBookingSteps.java:70)
-	at ✽.User proceed further for booking by clicking on 'BOOK THIS NOW'(file:///C:/Users/user/Documents/GitHub/SSBC/src/test/java/com/kirti/springboot/cucumber/features/HotelBooking.feature:10)
-]]></failure>
+Then User proceed further for booking by clicking on 'BOOK THIS NOW'........passed
+]]></system-out>
     </testcase>
 </testsuite>

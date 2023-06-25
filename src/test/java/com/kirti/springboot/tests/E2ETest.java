@@ -1,7 +1,7 @@
 package com.kirti.springboot.tests;
 
+import com.kirti.springboot.annotations.E2E;
 import com.kirti.springboot.annotations.LazyAutowired;
-import com.kirti.springboot.annotations.SeleniumTest;
 import lombok.Getter;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,9 +10,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 
-@SeleniumTest
+@E2E
 @Getter
-public class BaseTest {
+public class E2ETest {
     protected Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @BeforeEach
@@ -25,7 +25,7 @@ public class BaseTest {
     @AfterEach
     public void teardown() {
         this.applicationContext
-            .getBean(WebDriver.class)
-            .quit();
+                .getBean(WebDriver.class)
+                .quit();
     }
 }
