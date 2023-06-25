@@ -28,6 +28,8 @@ Created an annotation as well as calling in after hook in case of failure
 
 **How to Run Tests**
 We can run the test in the command line with the maven command below. The below command is for the zhs terminal.
+From IDE Configuration 
+![img_3.png](img_3.png)
 
 mvn -Dtest="com.kirti.springboot.tests.**" test
 The command below is for the bash terminal.
