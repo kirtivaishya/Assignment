@@ -35,6 +35,4 @@ The command below is for the bash terminal.
 mvn -Dtest=com.kirti.springboot.tests.** test
 If we want to select a specific profile, we have to specify this as shown below.
 
-@Profile(“grid”) annotation is for Selenium Grid and remotewebdriver. When we run the tests with “spring.profiles.active=grid” environment variable, the tests will use application-grid.properties file under the resources folder as the main configuration file.@Profile(“grid”) annotation is for Selenium Grid and remotewebdriver. When we run the tests with “spring.profiles.active=grid” environment variable, the tests will use application-grid.properties file under the resources folder as the main configuration file.
-
 
