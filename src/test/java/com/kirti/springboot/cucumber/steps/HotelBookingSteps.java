@@ -38,9 +38,10 @@ public class HotelBookingSteps {
     @DataTableType
     public BookingCatalog bookingEntry(Map<String, String> entry) {
         BookingDetails bookingDetails = BookingDetails.builder()
-                .destination(entry.get("Destination"))
-                .checkin(entry.get("checkin"))
-                .checkout(entry.get("checkout"))
+                .destinationCode(entry.get("DestinationCode"))
+                .destinationCityName(entry.get("DestinationCityName"))
+                .checkin(Integer.parseInt(entry.get("checkin")))
+                .checkout(Integer.parseInt(entry.get("checkout")))
                 .hotelName(entry.get("Hotel"))
                 .adultCount(Integer.parseInt(entry.get("Adults")))
                 .childNo(Integer.parseInt(entry.get("Children"))).build();
@@ -55,7 +56,12 @@ public class HotelBookingSteps {
         for (Map<String, String> columns : rows) {
             bookingEntry(columns);
         }
-        homePage.fetchSearchResult(catalog);
+        BookingDetails searchDetails = catalog.getBookingList().get(0);
+        bookingPage.isToDestinationCityIsDisplay();
+        bookingPage.selectDestinationCity(searchDetails.getDestinationCityName(), searchDetails.getDestinationCityName());
+        bookingPage.selectDepartureDate(searchDetails.getCheckin());
+        bookingPage.selectReturnDat(searchDetails.getCheckout());
+        bookingPage.selectTravellers(searchDetails.getAdultCount(), searchDetails.getChildNo());
     }
 
     @And("User clicks on 'Search' button")

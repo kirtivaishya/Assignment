@@ -9,9 +9,11 @@ import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
+import org.springframework.stereotype.Component;
 
 @E2E
 @Getter
+@Component
 public class E2ETest {
     protected Logger logger = LoggerFactory.getLogger(this.getClass());
 

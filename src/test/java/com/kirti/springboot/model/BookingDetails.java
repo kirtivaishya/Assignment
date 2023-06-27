@@ -8,10 +8,11 @@ import lombok.*;
 @ToString
 @Builder
 public class BookingDetails {
-    private String destination;
+    private String destinationCode;
+    private String destinationCityName;
     private String hotelName;
-    private String checkin;
-    private String checkout;
+    private int checkin;
+    private int checkout;
     private int adultCount;
     private int childNo;
 

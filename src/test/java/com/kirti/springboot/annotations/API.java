@@ -14,5 +14,5 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = SpringSeleniumApplication.class)
-public @interface UI {
+public @interface API {
 }

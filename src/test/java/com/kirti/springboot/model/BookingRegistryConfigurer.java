@@ -24,9 +24,9 @@ public class BookingRegistryConfigurer  {
                     continue;
                 }
                 BookingDetails bookingDetails = BookingDetails.builder()
-                                        .destination(fields.get(0))
-                                        .checkin(fields.get(1))
-                                        .checkout(fields.get(2))
+                                        .destinationCode(fields.get(0))
+                                        .checkin(Integer.parseInt(fields.get(1)))
+                                        .checkout(Integer.parseInt(fields.get(2)))
                                         .hotelName(fields.get(3))
                                         .adultCount(Integer.parseInt(fields.get(4)))
                                         .childNo(Integer.parseInt(fields.get(5))).build();
