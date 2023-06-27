@@ -47,31 +47,23 @@ public class BookingPage extends BasePage {
     private WebElement DestinationDropDown;
 
 
-    @FindBy(css = "p[data-cy='checkin']")
+    @FindBy(css = "input[@id='checkin']")
     private WebElement departureDate;
 
-    @FindBy(css = "p[data-cy='checkout']")
+    @FindBy(css = "input[@id='checkout']")
     private WebElement returnDate;
 
-    @FindBy(css = "label[for='travellers']")
+    @FindBy(css = "label[for='guest']")
     private WebElement travellers;
 
-    @FindBy(css = ".guestCounter li[data-cy*='children']")
+    @FindBy(css = "span[data-testid='children_count']")
     private List<WebElement> childCounter;
 
-    @FindBy(css = ".guestCounter li[data-cy*='adults']")
+    @FindBy(css = "span[data-testid='adult_count']")
     private List<WebElement> adultCounter;
 
-    @FindBy(css = "span[data-cy='travellerText']")
-    private WebElement travellerCount;
-
-
-    @FindBy(css = "button.btnApply")
+    @FindBy(css = "button.btnApplyNew")
     private WebElement applyButton;
-
-    @FindBy(css = "a.widgetSearchBtn")
-    private WebElement searchFlightButton;
-
 
     public void isToDestinationCityIsDisplay() {
         this.wait.until((d) -> this.toCity.isDisplayed());
