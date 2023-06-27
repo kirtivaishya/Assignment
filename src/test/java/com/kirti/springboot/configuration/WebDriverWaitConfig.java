@@ -13,12 +13,12 @@ import java.time.Duration;
 @LazyConfiguration
 public class WebDriverWaitConfig {
 
-    @Value("${default.timeout:30}")
+    @Value("${default.timeout:5}")
     private int timeout;
 
     @Bean
     @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
     public WebDriverWait webdriverWait(WebDriver driver) {
-        return new WebDriverWait(driver, Duration.ofMillis(this.timeout));
+        return new WebDriverWait(driver, Duration.ofSeconds(this.timeout));
     }
 }

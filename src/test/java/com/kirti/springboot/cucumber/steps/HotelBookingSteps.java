@@ -3,6 +3,7 @@ package com.kirti.springboot.cucumber.steps;
 import com.kirti.springboot.annotations.LazyAutowired;
 import com.kirti.springboot.model.BookingCatalog;
 import com.kirti.springboot.model.BookingDetails;
+import com.kirti.springboot.pages.BookingPage;
 import com.kirti.springboot.pages.HomePage;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.DataTableType;
@@ -21,6 +22,9 @@ public class HotelBookingSteps {
 
     @LazyAutowired
     private HomePage homePage;
+
+    @LazyAutowired
+    private BookingPage bookingPage;
 
 
     @Given("User is at home page of MMT")
@@ -63,6 +67,11 @@ public class HotelBookingSteps {
 
     @Then("User proceed further for booking by clicking on {string}")
     public void userClickOnBooking(String bookingText) {
-        homePage.book();
+        bookingPage.book();
+    }
+
+    @Then("User should be able to continue booking")
+    public void reviewBooking(){
+        bookingPage.isAt();
     }
 }

@@ -9,6 +9,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.util.List;
@@ -56,7 +58,7 @@ public class HomePage extends BasePage {
     public void fetchSearchResult(BookingCatalog catalog){
         BookingDetails searchDetails = catalog.getBookingList().get(0);
         //resolve json path
-        List<String> suggestions = restApiCall().jsonPath().getList("id");
+        List<String> suggestions = restApiCall(searchDetails.getHotelName()).jsonPath().getList("id");
         String hotelId = suggestions.get(0);
         String SearchURL= baseURL
                 +"/hotels/hotel-details/?checkin="+searchDetails.getCheckin()
@@ -84,7 +86,7 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    public Response restApiCall(){
+    public Response restApiCall(String hotelName){
 //        https://mapi.makemytrip.com/autosuggest/v5/search?cc=1&exps=expscore1
         // &expui=v1&hcn=1&q=TajExoticaResort&sf=true&
         // sgr=t&language=eng&region=in&currency=INR&idContext=B2C&countryCode=IN
@@ -93,7 +95,7 @@ public class HomePage extends BasePage {
                 .queryParam("exps", "expscore1")
                 .queryParam("expui", "v1")
                 .queryParam("hcn", "1")
-                .queryParam("q", "TajExoticaResort")
+                .queryParam("q", hotelName)
                 .queryParam("sf","true")
                 .queryParam("sgr","t")
                 .queryParam("language","eng")

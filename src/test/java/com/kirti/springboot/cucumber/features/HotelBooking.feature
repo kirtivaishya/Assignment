@@ -8,5 +8,6 @@ Feature:Hotel booking
     |GOI        |06302023|07052023|TajExoticaResort|2|1|
     And User clicks on 'Search' button
     Then User proceed further for booking by clicking on 'BOOK THIS NOW'
+    Then User should be able to continue booking
 
 
